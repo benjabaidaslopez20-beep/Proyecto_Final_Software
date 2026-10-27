@@ -1,5 +1,6 @@
 <?php
 
+require_once "config/auth.php";
 require_once "config/conexion.php";
 
 
@@ -198,6 +199,23 @@ $ventas_mes = $fila_ventas_mes["total"];
 
             </li>
 
+
+                    <?php if (es_admin()) { ?>
+
+                <li>
+                    <a href="usuarios/index.php">
+                        👤 Usuarios
+                    </a>
+                </li>
+
+            <?php } ?>
+
+
+            <li>
+                <a href="logout.php">
+                    🚪 Cerrar sesión
+                </a>
+            </li>
 
         </ul>
 

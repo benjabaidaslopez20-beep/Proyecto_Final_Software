@@ -1,5 +1,6 @@
 <?php
 
+require_once "../config/auth.php";
 require_once "../config/conexion.php";
 
 // Verificamos que el formulario haya sido enviado mediante POST

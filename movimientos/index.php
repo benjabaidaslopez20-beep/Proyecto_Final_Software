@@ -1,5 +1,6 @@
 <?php
 
+require_once "../config/auth.php";
 require_once "../config/conexion.php";
 
 
@@ -101,6 +102,23 @@ $resultado = $conexion->query($consulta);
             <li>
                 <a href="#">
                     📊 Reportes
+                </a>
+            </li>
+
+                    <?php if (es_admin()) { ?>
+
+                <li>
+                    <a href="../usuarios/index.php">
+                        👤 Usuarios
+                    </a>
+                </li>
+
+            <?php } ?>
+
+
+            <li>
+                <a href="../logout.php">
+                    🚪 Cerrar sesión
                 </a>
             </li>
 
