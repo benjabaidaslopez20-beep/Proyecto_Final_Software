@@ -1,0 +1,125 @@
+/* ========================================
+   FORMULARIOS - Sistema de gestión
+======================================== */
+
+.formulario {
+    max-width: 900px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 24px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    margin-bottom: 6px;
+
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    background-color: #f8fafc;
+    color: #0f172a;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.campo textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    outline: none;
+
+    background-color: white;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Botones */
+
+.formulario-botones {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 10px;
+    padding-top: 20px;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+.btn-guardar {
+    background-color: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 11px 22px;
+
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn-guardar:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-cancelar {
+    display: inline-block;
+
+    padding: 11px 22px;
+
+    background-color: #e2e8f0;
+    color: #334155;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.btn-cancelar:hover {
+    background-color: #cbd5e1;
+}
+
+/* Celular */
+
+@media (max-width: 700px) {
+
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+}

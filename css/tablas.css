@@ -1,0 +1,165 @@
+/* ========================================
+   TABLAS Y BOTONES - Sistema de gestión
+======================================== */
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+/* Encabezado */
+
+.tabla thead th {
+    background-color: #1e293b;
+    color: #f1f5f9;
+
+    padding: 14px 16px;
+
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.tabla thead th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.tabla thead th:last-child {
+    border-top-right-radius: 8px;
+}
+
+/* Filas */
+
+.tabla tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+}
+
+.tabla tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.tabla tbody tr:hover {
+    background-color: #eff6ff;
+}
+
+/* Columnas */
+
+.tabla .col-num,
+.tabla .col-precio,
+.tabla .col-stock {
+    text-align: right;
+}
+
+.tabla thead th.col-num,
+.tabla thead th.col-precio,
+.tabla thead th.col-stock {
+    text-align: right;
+}
+
+.tabla .col-acciones {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tabla .col-nombre {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.tabla .col-codigo {
+    font-family: Consolas, monospace;
+    color: #64748b;
+}
+
+/* Etiquetas de stock */
+
+.badge {
+    display: inline-block;
+
+    min-width: 36px;
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.badge-ok {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.badge-bajo {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Botones de acciones */
+
+.btn-accion {
+    display: inline-block;
+
+    padding: 6px 12px;
+    margin: 0 2px;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.btn-editar {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.btn-editar:hover {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-eliminar {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.btn-eliminar:hover {
+    background-color: #dc2626;
+    color: white;
+}
+
+/* Botón principal (+ Agregar producto) */
+
+.content-box button {
+    background-color: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 10px 18px;
+
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.content-box button:hover {
+    background-color: #1d4ed8;
+}
