@@ -1,0 +1,16 @@
+
+INSERT INTO usuarios (nombre, usuario, password, rol)
+VALUES (
+    'Baidas Benjamin',
+    'bbaidas',
+    '$2y$12$Zy6o6ngpda01EC03nYYsi.r703nwuiMwNK3QpW/SsYKkGKfrGZboa',
+    'ADMIN'
+pasword: $2y$12$Zy6o6ngpda01EC03nYYsi.r703nwuiMwNK3QpW/SsYKkGKfrGZboa
+
+
+
+Usuario: bbaidas
+Contraseña: Cambiar123
+ 
+Usuario: Cascote
+Contraseña: Catamarca124

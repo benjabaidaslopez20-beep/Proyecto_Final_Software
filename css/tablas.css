@@ -163,3 +163,30 @@
 .content-box button:hover {
     background-color: #1d4ed8;
 }
+
+
+/* Botón secundario (ej: "Ver productos dados de baja") */
+
+.btn-secundario {
+    display: inline-block;
+
+    padding: 9px 16px;
+
+    background-color: #f1f5f9;
+    color: #334155;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.btn-secundario:hover {
+    background-color: #1e293b;
+    border-color: #1e293b;
+    color: white;
+}

@@ -3,9 +3,14 @@
 require_once "../config/auth.php";
 require_once "../config/conexion.php";
 
-// Productos del más nuevo al más antiguo
+// Vista: productos activos o dados de baja
+$ver_bajas = (($_GET["ver"] ?? "") === "bajas");
+
+$activo = $ver_bajas ? 0 : 1;
+
+// Del más nuevo al más antiguo
 $resultado = $conexion->query(
-    "SELECT * FROM productos ORDER BY id DESC"
+    "SELECT * FROM productos WHERE activo = $activo ORDER BY id DESC"
 );
 
 ?>
@@ -134,11 +139,19 @@ $resultado = $conexion->query(
 
         <section class="content-box" style="margin-top: 20px;">
 
-            <h3>Listado de productos</h3>
+            <h3><?php echo $ver_bajas ? "Productos dados de baja" : "Listado de productos"; ?></h3>
+
+            <p style="margin-bottom: 18px;">
+                <?php if ($ver_bajas) { ?>
+                    <a href="index.php" class="btn-secundario">← Volver a productos activos</a>
+                <?php } else { ?>
+                    <a href="index.php?ver=bajas" class="btn-secundario">📁 Ver productos dados de baja</a>
+                <?php } ?>
+            </p>
 
             <?php if ($resultado->num_rows === 0) { ?>
 
-                <p>Todavía no hay productos cargados.</p>
+                <p><?php echo $ver_bajas ? "No hay productos dados de baja." : "Todavía no hay productos cargados."; ?></p>
 
             <?php } else { ?>
 
@@ -173,9 +186,14 @@ $resultado = $conexion->query(
                                     <span class="badge <?php echo $clase; ?>"><?php echo $p["stock"]; ?></span>
                                 </td>
                                 <td class="col-acciones">
-                                    <a class="btn-accion btn-editar" href="editar.php?id=<?php echo $p['id']; ?>">Editar</a>
-                                    <a class="btn-accion btn-eliminar" href="eliminar.php?id=<?php echo $p['id']; ?>"
-                                       onclick="return confirm('¿Eliminar este producto?');">Eliminar</a>
+                                    <?php if ($ver_bajas) { ?>
+                                        <a class="btn-accion btn-editar" href="reactivar.php?id=<?php echo $p['id']; ?>"
+                                           onclick="return confirm('¿Reactivar este producto?');">Reactivar</a>
+                                    <?php } else { ?>
+                                        <a class="btn-accion btn-editar" href="editar.php?id=<?php echo $p['id']; ?>">Editar</a>
+                                        <a class="btn-accion btn-eliminar" href="dar_baja.php?id=<?php echo $p['id']; ?>"
+                                           onclick="return confirm('¿Dar de baja este producto? Seguirá figurando en el historial de ventas y facturas.');">Dar de baja</a>
+                                    <?php } ?>
                                 </td>
                             </tr>
 

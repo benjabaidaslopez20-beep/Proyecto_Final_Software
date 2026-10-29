@@ -65,7 +65,7 @@ $resultado = $consulta->get_result();
 
 if ($resultado->num_rows > 0) {
 
-    die("Ya existe un producto con ese código.");
+    die("Ya existe un producto con ese código (puede estar dado de baja).");
 
 }
 
