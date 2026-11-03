@@ -64,7 +64,7 @@ $resultado = $conexion->query(
             </li>
 
             <li>
-                <a href="#">
+                <a href="../ventas/index.php">
                     🛒 Ventas
                 </a>
             </li>
@@ -76,7 +76,7 @@ $resultado = $conexion->query(
             </li>
 
             <li>
-                <a href="#">
+                <a href="../clientes/index.php">
                     👥 Clientes
                 </a>
             </li>

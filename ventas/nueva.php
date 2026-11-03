@@ -41,6 +41,20 @@ while ($f = $r->fetch_assoc()) {
 
 $clientes = $conexion->query("SELECT id, nombre FROM clientes ORDER BY nombre");
 
+
+// =====================================================
+// PORCENTAJE DE IVA (configuracion_empresa)
+// =====================================================
+
+$iva_pct = 21.0;
+
+$r = $conexion->query("SELECT iva_porcentaje FROM configuracion_empresa WHERE id = 1");
+
+if ($r && ($cfg = $r->fetch_assoc())) {
+
+    $iva_pct = (float) $cfg["iva_porcentaje"];
+}
+
 $menu_activo = "ventas";
 $prefijo = "../";
 
@@ -198,6 +212,11 @@ $prefijo = "../";
                         <input type="number" name="descuento" id="descuento" min="0" step="0.01" value="0">
                     </div>
 
+                    <div class="totales-fila">
+                        <span>IVA (<?php echo rtrim(rtrim(number_format($iva_pct, 2, ",", ""), "0"), ","); ?>%)</span>
+                        <strong id="t-iva">$0,00</strong>
+                    </div>
+
                     <div class="totales-fila totales-total">
                         <span>Total</span>
                         <span id="t-total">$0,00</span>
@@ -226,6 +245,8 @@ $prefijo = "../";
     (function () {
 
         const productos = <?php echo json_encode($productos, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
+
+        const ivaPct = <?php echo json_encode($iva_pct); ?>;
 
         const porId = {};
         productos.forEach(function (p) { porId[p.id] = p; });
@@ -329,8 +350,13 @@ $prefijo = "../";
             if (desc < 0) desc = 0;
             if (desc > subtotal) desc = subtotal;
 
+            // IVA sobre el subtotal menos el descuento; total = neto + IVA
+            const neto = Math.round((subtotal - desc) * 100) / 100;
+            const iva = Math.round(neto * ivaPct) / 100;
+
             document.getElementById("t-subtotal").textContent = dinero(subtotal);
-            document.getElementById("t-total").textContent = dinero(subtotal - desc);
+            document.getElementById("t-iva").textContent = dinero(iva);
+            document.getElementById("t-total").textContent = dinero(neto + iva);
         }
 
         // Pagaré: pedir fecha de vencimiento

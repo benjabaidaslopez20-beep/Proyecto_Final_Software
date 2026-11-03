@@ -13,7 +13,7 @@ $menu_items = [
     "movimientos" => ["↕️ Movimientos",   "movimientos/index.php"],
     "ventas"      => ["🛒 Ventas",        "ventas/index.php"],
     "facturacion" => ["🧾 Facturación",   "#"],
-    "clientes"    => ["👥 Clientes",      "#"],
+    "clientes"    => ["👥 Clientes",      "clientes/index.php"],
     "reportes"    => ["📊 Reportes",      "#"],
 ];
 

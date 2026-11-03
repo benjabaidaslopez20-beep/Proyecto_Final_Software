@@ -140,11 +140,11 @@ $resultado = $conexion->query(
 
             <li><a href="../movimientos/index.php">↕️ Movimientos</a></li>
 
-            <li><a href="#">🛒 Ventas</a></li>
+            <li><a href="../ventas/index.php">🛒 Ventas</a></li>
 
             <li><a href="#">🧾 Facturación</a></li>
 
-            <li><a href="#">👥 Clientes</a></li>
+            <li><a href="../clientes/index.php">👥 Clientes</a></li>
 
             <li><a href="#">📊 Reportes</a></li>
 

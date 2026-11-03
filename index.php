@@ -8,7 +8,7 @@ require_once "config/conexion.php";
 // CANTIDAD DE PRODUCTOS
 // =====================================================
 
-$consulta_productos = "SELECT COUNT(*) AS total FROM productos";
+$consulta_productos = "SELECT COUNT(*) AS total FROM productos WHERE activo = 1";
 
 $resultado_productos = $conexion->query($consulta_productos);
 
@@ -21,7 +21,7 @@ $total_productos = $fila_productos["total"];
 // STOCK TOTAL
 // =====================================================
 
-$consulta_stock = "SELECT COALESCE(SUM(stock), 0) AS total FROM productos";
+$consulta_stock = "SELECT COALESCE(SUM(stock), 0) AS total FROM productos WHERE activo = 1";
 
 $resultado_stock = $conexion->query($consulta_stock);
 
@@ -152,7 +152,7 @@ $ventas_mes = $fila_ventas_mes["total"];
 
             <li>
 
-                <a href="#">
+                <a href="ventas/index.php">
 
                     🛒 Ventas
 

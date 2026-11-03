@@ -165,12 +165,22 @@ try {
         throw new ErrorVenta("El descuento no puede ser mayor al subtotal.");
     }
 
-    $total = round($subtotal - $descuento, 2);
+    // IVA: se calcula sobre el subtotal menos el descuento.
+    // Total = subtotal (neto) + IVA.
+    $neto = round($subtotal - $descuento, 2);
+
+    $cfg = $conexion
+        ->query("SELECT iva_porcentaje FROM configuracion_empresa WHERE id = 1")
+        ->fetch_assoc();
+
+    $iva_pct = $cfg ? (float) $cfg["iva_porcentaje"] : 21.0;
+
+    $impuestos = round($neto * $iva_pct / 100, 2);
+
+    $total = round($neto + $impuestos, 2);
 
 
     // ---------- Venta ----------
-
-    $impuestos = 0.00;
 
     $ins = $conexion->prepare(
         "INSERT INTO ventas (cliente_id, subtotal, descuento, impuestos, total, estado)

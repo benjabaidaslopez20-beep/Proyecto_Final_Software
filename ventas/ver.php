@@ -218,6 +218,11 @@ $prefijo = "../";
                     </div>
                 <?php } ?>
 
+                <div class="totales-fila">
+                    <span>IVA</span>
+                    <strong><?php echo dinero($venta["impuestos"]); ?></strong>
+                </div>
+
                 <div class="totales-fila totales-total">
                     <span>Total</span>
                     <span><?php echo dinero($venta["total"]); ?></span>

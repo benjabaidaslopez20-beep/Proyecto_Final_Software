@@ -213,7 +213,7 @@ function mostrar($valor)
             </li>
 
             <li>
-                <a href="#">
+                <a href="../ventas/index.php">
                     🛒 Ventas
                 </a>
             </li>
