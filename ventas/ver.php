@@ -233,7 +233,10 @@ $prefijo = "../";
 
             <div class="venta-botones">
 
-                <a href="index.php" class="btn-cancelar">← Volver a ventas</a>
+                <a href="index.php" class="btn-volver">
+                    <span class="btn-volver-flecha">←</span>
+                    Volver a ventas
+                </a>
 
                 <?php if ($venta["estado"] !== "ANULADA") { ?>
 

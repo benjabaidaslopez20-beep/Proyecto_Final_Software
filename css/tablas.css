@@ -15,8 +15,8 @@
 /* Encabezado */
 
 .tabla thead th {
-    background-color: #1e293b;
-    color: #f1f5f9;
+    background-color: #2B1D4A;
+    color: #F3E6D7;
 
     padding: 14px 16px;
 
@@ -39,16 +39,16 @@
 
 .tabla tbody td {
     padding: 14px 16px;
-    border-bottom: 1px solid #e2e8f0;
-    color: #334155;
+    border-bottom: 1px solid #E3D0B8;
+    color: #2B1D4A;
 }
 
 .tabla tbody tr:nth-child(even) {
-    background-color: #f8fafc;
+    background-color: #F7EEE2;
 }
 
 .tabla tbody tr:hover {
-    background-color: #eff6ff;
+    background-color: #E9E0F7;
 }
 
 /* Columnas */
@@ -72,12 +72,12 @@
 
 .tabla .col-nombre {
     font-weight: 600;
-    color: #0f172a;
+    color: #2B1D4A;
 }
 
 .tabla .col-codigo {
     font-family: Consolas, monospace;
-    color: #64748b;
+    color: #6B5B85;
 }
 
 /* Etiquetas de stock */
@@ -96,8 +96,8 @@
 }
 
 .badge-ok {
-    background-color: #dcfce7;
-    color: #166534;
+    background-color: #e4ff3b;
+    color: #2B1D4A;
 }
 
 .badge-bajo {
@@ -105,88 +105,126 @@
     color: #991b1b;
 }
 
-/* Botones de acciones */
+/* Botones de acciones (dentro de las tablas: Ver, Editar, Eliminar) */
 
 .btn-accion {
     display: inline-block;
 
-    padding: 6px 12px;
+    padding: 5px 14px;
     margin: 0 2px;
 
-    border-radius: 6px;
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
 
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
 
-    transition: 0.2s;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+.btn-accion:hover {
+    box-shadow: 2px 2px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.btn-accion:active {
+    box-shadow: none;
+    transform: none;
 }
 
 .btn-editar {
-    background-color: #dbeafe;
-    color: #1d4ed8;
+    background-color: #E9E0F7;
+    color: #2B1D4A;
 }
 
 .btn-editar:hover {
-    background-color: #2563eb;
-    color: white;
+    background-color: #e4ff3b;
+    color: #2B1D4A;
 }
 
 .btn-eliminar {
     background-color: #fee2e2;
     color: #b91c1c;
+    border-color: #b91c1c;
 }
 
 .btn-eliminar:hover {
     background-color: #dc2626;
     color: white;
+    box-shadow: 2px 2px 0 #7f1d1d;
 }
 
-/* Botón principal (+ Agregar producto) */
+/* Botón principal (+ Agregar producto, + Nueva venta) */
 
 .content-box button {
-    background-color: #2563eb;
-    color: white;
+    background-color: #9B7ED6;
+    color: #2B1D4A;
 
-    border: none;
-    border-radius: 8px;
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
 
-    padding: 10px 18px;
+    padding: 10px 22px;
 
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
 
-    transition: 0.2s;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
 }
 
 .content-box button:hover {
-    background-color: #1d4ed8;
+    background-color: #e4ff3b;
+    box-shadow: 3px 3px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.content-box button:active {
+    box-shadow: none;
+    transform: none;
 }
 
 
 /* Botón secundario (ej: "Ver productos dados de baja") */
 
-.btn-secundario {
+.btn-secundario,
+.content-box .btn-secundario {
     display: inline-block;
 
-    padding: 9px 16px;
+    padding: 9px 20px;
 
-    background-color: #f1f5f9;
-    color: #334155;
+    background-color: #F3E6D7;
+    color: #2B1D4A;
 
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
 
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
+    cursor: pointer;
 
-    transition: 0.2s;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
 }
 
-.btn-secundario:hover {
-    background-color: #1e293b;
-    border-color: #1e293b;
-    color: white;
+.btn-secundario:hover,
+.content-box .btn-secundario:hover {
+    background-color: #e4ff3b;
+    box-shadow: 3px 3px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.btn-secundario:active,
+.content-box .btn-secundario:active {
+    box-shadow: none;
+    transform: none;
 }

@@ -1,7 +1,7 @@
 <?php
 
 // =====================================================
-// MENÚ LATERAL
+// MENÚ SUPERIOR DESPLEGABLE
 // Antes de incluirlo, definir:
 //   $menu_activo  -> "inicio", "productos", "ventas", etc.
 //   $prefijo      -> "" (raíz) o "../" (dentro de una carpeta)
@@ -17,14 +17,40 @@ $menu_items = [
     "reportes"    => ["📊 Reportes",      "#"],
 ];
 
+$seccion_actual = isset($menu_items[$menu_activo]) ? $menu_items[$menu_activo][0] : "";
+
 ?>
 
-<aside class="sidebar">
+<!-- Barra superior: siempre visible, con el botón que abre el menú -->
 
-    <div class="logo">
-        <h1>📦 Mi Gestión</h1>
-        <p>Sistema de gestión</p>
+<header class="topbar">
+
+    <button type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="menuPanel">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="topbar-logo">
+        <span class="topbar-titulo">📦 Mi Gestión</span>
+        <span class="topbar-sub">Sistema de gestión</span>
     </div>
+
+    <?php if ($seccion_actual !== "") { ?>
+        <span class="topbar-seccion"><?php echo $seccion_actual; ?></span>
+    <?php } ?>
+
+</header>
+
+
+<!-- Panel horizontal que se despliega debajo de la barra -->
+
+<nav class="menu-panel" id="menuPanel">
 
     <ul class="menu">
 
@@ -57,4 +83,37 @@ $menu_items = [
 
     </ul>
 
-</aside>
+</nav>
+
+<!-- Fondo oscuro: al tocarlo se cierra el menú -->
+<div class="menu-fondo" id="menuFondo"></div>
+
+<script>
+(function () {
+
+    var cuerpo = document.body;
+    var boton = document.getElementById("menuToggle");
+    var fondo = document.getElementById("menuFondo");
+
+    function cambiar(abrir) {
+        cuerpo.classList.toggle("menu-abierto", abrir);
+        boton.setAttribute("aria-expanded", abrir ? "true" : "false");
+        boton.setAttribute("aria-label", abrir ? "Cerrar menú" : "Abrir menú");
+    }
+
+    boton.addEventListener("click", function () {
+        cambiar(!cuerpo.classList.contains("menu-abierto"));
+    });
+
+    fondo.addEventListener("click", function () {
+        cambiar(false);
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            cambiar(false);
+        }
+    });
+
+})();
+</script>

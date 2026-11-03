@@ -7,7 +7,7 @@
 
 
 /* =====================================================
-   MENSAJES (verde = éxito, rojo = error)
+   MENSAJES (lima = éxito, rojo = error)
 ===================================================== */
 
 .cli-mensaje {
@@ -18,9 +18,9 @@
 }
 
 .cli-mensaje-ok {
-    background: #e6f6ec;         /* color de fondo */
-    color: #1e7a3c;              /* color del texto */
-    border: 1px solid #b5e2c5;   /* borde */
+    background: #e4ff3b;         /* color de fondo */
+    color: #2B1D4A;              /* color del texto */
+    border: 1px solid #cfe62a;   /* borde */
 }
 
 .cli-mensaje-error {
@@ -54,75 +54,91 @@
 .cli-buscador input {
     flex: 1;                     /* el campo se estira */
     padding: 10px 14px;          /* espacio interno (alto del campo) */
-    border: 1px solid #cfd6dd;   /* color del borde */
+    border: 1px solid #E3D0B8;   /* color del borde */
     border-radius: 8px;
     font-size: 14px;
     outline: none;               /* saca el borde azul del navegador */
 }
 
 .cli-buscador input:focus {
-    border-color: #3b82f6;       /* color del borde cuando hacés click adentro */
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); /* brillo alrededor */
+    border-color: #9B7ED6;       /* color del borde cuando hacés click adentro */
+    box-shadow: 0 0 0 3px rgba(155, 126, 214, 0.3); /* brillo alrededor */
 }
 
 
 /* =====================================================
-   BOTONES
+   BOTONES (todos con el mismo estilo: píldora con borde)
 ===================================================== */
 
 .cli-btn-buscar,
-.cli-btn-nuevo {
-    padding: 10px 18px;
-    border: none;                /* sin borde */
-    border-radius: 8px;
+.cli-btn-nuevo,
+.cli-btn-limpiar,
+.cli-btn-cancelar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 22px;
+
+    border: 2px solid #2B1D4A;      /* borde oscuro */
+    border-radius: 999px;           /* forma de píldora */
+
     font-size: 14px;
-    font-weight: 600;            /* grosor de la letra */
-    cursor: pointer;             /* manito al pasar el mouse */
-    color: #ffffff;              /* color del texto */
+    font-weight: 600;
+    color: #2B1D4A;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+/* Al pasar el mouse: sombra sólida y un pequeño desplazamiento */
+
+.cli-btn-buscar:hover,
+.cli-btn-nuevo:hover,
+.cli-btn-limpiar:hover,
+.cli-btn-cancelar:hover {
+    box-shadow: 3px 3px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.cli-btn-buscar:active,
+.cli-btn-nuevo:active,
+.cli-btn-limpiar:active,
+.cli-btn-cancelar:active {
+    box-shadow: none;
+    transform: none;
 }
 
 .cli-btn-buscar {
-    background: #3b82f6;         /* azul */
+    background: #9B7ED6;         /* violeta */
 }
 
 .cli-btn-buscar:hover {
-    background: #2563eb;         /* azul más oscuro al pasar el mouse */
+    background: #e4ff3b;         /* lima al pasar el mouse */
 }
 
+/* "Nuevo cliente" es la acción principal: al revés (lima -> violeta) */
+
 .cli-btn-nuevo {
-    background: #16a34a;         /* verde */
+    background: #e4ff3b;
 }
 
 .cli-btn-nuevo:hover {
-    background: #15803d;
+    background: #9B7ED6;
 }
 
-.cli-btn-limpiar {
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    color: #667085;              /* gris */
-    font-size: 14px;
-    text-decoration: none;       /* sin subrayado */
-}
-
-.cli-btn-limpiar:hover {
-    color: #b42318;              /* rojo al pasar el mouse */
-}
-
+.cli-btn-limpiar,
 .cli-btn-cancelar {
-    padding: 10px 18px;
-    background: #eef1f4;
-    color: #344054;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
+    background: #F3E6D7;         /* crema */
 }
 
+.cli-btn-limpiar:hover,
 .cli-btn-cancelar:hover {
-    background: #dde2e8;
+    background: #e4ff3b;
 }
 
 
@@ -132,7 +148,7 @@
 
 .cli-contador {
     margin: 6px 0 14px;
-    color: #667085;
+    color: #6B5B85;
     font-size: 13px;
 }
 
@@ -142,9 +158,9 @@
 ===================================================== */
 
 .cli-tabla-caja {
-    background: #ffffff;         /* fondo blanco de la tarjeta */
+    background: #FBF6EF;         /* fondo blanco de la tarjeta */
     border-radius: 12px;
-    box-shadow: 0 1px 4px rgba(16, 24, 40, 0.1); /* sombra suave */
+    box-shadow: 0 1px 4px rgba(43, 29, 74, 0.15); /* sombra suave */
     overflow-x: auto;            /* scroll horizontal si no entra en pantalla */
 }
 
@@ -157,8 +173,8 @@
 .cli-tabla th {
     text-align: left;            /* alineación del título de cada columna */
     padding: 14px 16px;
-    background: #f5f7fa;         /* fondo del encabezado */
-    color: #475467;
+    background: #EFE0CE;         /* fondo del encabezado */
+    color: #6B5B85;
     font-size: 12px;
     text-transform: uppercase;   /* pasa el título a mayúsculas */
     letter-spacing: 0.4px;       /* separación entre letras */
@@ -167,23 +183,23 @@
 
 .cli-tabla td {
     padding: 13px 16px;
-    border-top: 1px solid #eaecf0; /* línea separadora entre filas */
-    color: #344054;
+    border-top: 1px solid #E3D0B8; /* línea separadora entre filas */
+    color: #2B1D4A;
 }
 
 .cli-tabla tbody tr:hover {
-    background: #f9fafb;         /* resalta la fila al pasar el mouse */
+    background: #E9E0F7;         /* resalta la fila al pasar el mouse */
 }
 
 .cli-nombre {
     font-weight: 600;            /* nombre en negrita */
-    color: #101828;
+    color: #2B1D4A;
 }
 
 .cli-vacio {
     text-align: center;
     padding: 30px 16px !important;
-    color: #98a2b3;
+    color: #6B5B85;
 }
 
 
@@ -201,7 +217,7 @@
 }
 
 .cli-modal::backdrop {
-    background: rgba(16, 24, 40, 0.55); /* fondo oscuro detrás de la ventana */
+    background: rgba(43, 29, 74, 0.55); /* fondo oscuro detrás de la ventana */
 }
 
 .cli-modal-form {
@@ -218,19 +234,31 @@
 .cli-modal-titulo h3 {
     margin: 0;
     font-size: 20px;
-    color: #101828;
+    color: #2B1D4A;
 }
 
 .cli-modal-cerrar {
-    background: none;
-    border: none;
-    font-size: 18px;
-    color: #98a2b3;
+    width: 36px;
+    height: 36px;
+
+    background: #F3E6D7;
+    border: 2px solid #2B1D4A;
+    border-radius: 50%;
+
+    font-size: 14px;
+    color: #2B1D4A;
     cursor: pointer;
+
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
 }
 
 .cli-modal-cerrar:hover {
-    color: #101828;
+    background: #e4ff3b;
+    box-shadow: 2px 2px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
 }
 
 .cli-fila {

@@ -20,8 +20,8 @@
 }
 
 .alerta-ok {
-    background-color: #dcfce7;
-    color: #166534;
+    background-color: #e4ff3b;
+    color: #2B1D4A;
 }
 
 /* Etiqueta amarilla (pendiente) */
@@ -58,9 +58,9 @@
 
     padding: 10px;
 
-    background-color: #f8fafc;
+    background-color: #FBF6EF;
 
-    border: 1px solid #cbd5e1;
+    border: 1px solid #E3D0B8;
     border-radius: 8px;
 
     font-size: 14px;
@@ -68,15 +68,17 @@
 
 .items-tabla .input-cant:focus {
     outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: #9B7ED6;
+    box-shadow: 0 0 0 3px rgba(155, 126, 214, 0.3);
 }
 
 .content-box .btn-quitar {
     background-color: #fee2e2;
     color: #b91c1c;
 
-    padding: 6px 12px;
+    border: 2px solid #b91c1c;
+
+    padding: 5px 14px;
 
     font-size: 13px;
 }
@@ -84,21 +86,11 @@
 .content-box .btn-quitar:hover {
     background-color: #dc2626;
     color: white;
+    box-shadow: 2px 2px 0 #7f1d1d;
 }
 
 .content-box .btn-secundario {
-    background-color: #f1f5f9;
-    color: #334155;
-
-    border: 1px solid #cbd5e1;
-
     margin-top: 14px;
-}
-
-.content-box .btn-secundario:hover {
-    background-color: #1e293b;
-    border-color: #1e293b;
-    color: white;
 }
 
 /* Totales */
@@ -115,10 +107,10 @@
 
     padding: 10px 0;
 
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #E3D0B8;
 
     font-size: 14px;
-    color: #475569;
+    color: #6B5B85;
 }
 
 .totales-fila input {
@@ -128,10 +120,10 @@
 
     text-align: right;
 
-    border: 1px solid #cbd5e1;
+    border: 1px solid #E3D0B8;
     border-radius: 8px;
 
-    background-color: #f8fafc;
+    background-color: #FBF6EF;
 }
 
 .totales-total {
@@ -139,7 +131,7 @@
 
     font-size: 22px;
     font-weight: bold;
-    color: #0f172a;
+    color: #2B1D4A;
 }
 
 .venta-botones {
@@ -151,7 +143,19 @@
     margin-top: 20px;
     padding-top: 20px;
 
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #E3D0B8;
+}
+
+/* "Anular venta": mismo tamaño que los demás botones de la fila */
+
+.venta-botones .btn-quitar {
+    padding: 13px 24px;
+
+    font-size: 14px;
+}
+
+.venta-botones .btn-quitar:hover {
+    box-shadow: 3px 3px 0 #7f1d1d;
 }
 
 /* Detalle de una venta */
@@ -171,11 +175,75 @@
 
     font-size: 12px;
     font-weight: 600;
-    color: #64748b;
+    color: #6B5B85;
     text-transform: uppercase;
 }
 
 .info-item strong {
     font-size: 16px;
-    color: #0f172a;
+    color: #2B1D4A;
+}
+
+
+/* Botón "Volver a ventas" */
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-right: auto;
+
+    padding: 8px 22px 8px 8px;
+
+    background-color: #F3E6D7;
+    color: #2B1D4A;
+
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: background-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+.btn-volver-flecha {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: #9B7ED6;
+    color: #2B1D4A;
+
+    border-radius: 50%;
+
+    font-size: 16px;
+
+    transition: transform 0.25s ease,
+                background-color 0.25s ease,
+                color 0.25s ease;
+}
+
+.btn-volver:hover {
+    background-color: #e4ff3b;
+    box-shadow: 3px 3px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.btn-volver:hover .btn-volver-flecha {
+    background-color: #2B1D4A;
+    color: #e4ff3b;
+    transform: translateX(-3px);
+}
+
+.btn-volver:focus-visible {
+    outline: 3px solid #9B7ED6;
+    outline-offset: 3px;
 }

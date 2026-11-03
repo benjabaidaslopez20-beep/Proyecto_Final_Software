@@ -54,77 +54,11 @@ $resultado = $conexion->query($consulta);
 
     <!-- BARRA LATERAL -->
 
-    <aside class="sidebar">
-
-        <div class="logo">
-            <h1>📦 Mi Gestión</h1>
-            <p>Sistema de gestión</p>
-        </div>
-
-        <ul class="menu">
-
-            <li>
-                <a href="../index.php">
-                    🏠 Inicio
-                </a>
-            </li>
-
-            <li>
-                <a href="../productos/index.php">
-                    📦 Productos
-                </a>
-            </li>
-
-            <li>
-                <a href="index.php" class="active">
-                    ↕️ Movimientos
-                </a>
-            </li>
-
-            <li>
-                <a href="../ventas/index.php">
-                    🛒 Ventas
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    🧾 Facturación
-                </a>
-            </li>
-
-            <li>
-                <a href="../clientes/index.php">
-                    👥 Clientes
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    📊 Reportes
-                </a>
-            </li>
-
-                    <?php if (es_admin()) { ?>
-
-                <li>
-                    <a href="../usuarios/index.php">
-                        👤 Usuarios
-                    </a>
-                </li>
-
-            <?php } ?>
-
-
-            <li>
-                <a href="../logout.php">
-                    🚪 Cerrar sesión
-                </a>
-            </li>
-
-        </ul>
-
-    </aside>
+    <?php
+        $menu_activo = "movimientos";
+        $prefijo = "../";
+        require "../config/menu.php";
+    ?>
 
 
     <!-- CONTENIDO -->

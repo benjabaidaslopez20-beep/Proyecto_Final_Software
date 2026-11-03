@@ -24,7 +24,7 @@
 
     font-size: 13px;
     font-weight: 600;
-    color: #475569;
+    color: #6B5B85;
 }
 
 .campo input,
@@ -33,10 +33,10 @@
 
     padding: 11px 13px;
 
-    background-color: #f8fafc;
-    color: #0f172a;
+    background-color: #FBF6EF;
+    color: #2B1D4A;
 
-    border: 1px solid #cbd5e1;
+    border: 1px solid #E3D0B8;
     border-radius: 8px;
 
     font-size: 14px;
@@ -54,8 +54,8 @@
     outline: none;
 
     background-color: white;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: #9B7ED6;
+    box-shadow: 0 0 0 3px rgba(155, 126, 214, 0.3);
 }
 
 /* Botones */
@@ -70,48 +70,69 @@
     margin-top: 10px;
     padding-top: 20px;
 
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #E3D0B8;
 }
 
 .btn-guardar {
-    background-color: #2563eb;
-    color: white;
+    background-color: #9B7ED6;
+    color: #2B1D4A;
 
-    border: none;
-    border-radius: 8px;
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
 
-    padding: 11px 22px;
+    padding: 10px 24px;
 
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
 
-    transition: 0.2s;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
 }
 
 .btn-guardar:hover {
-    background-color: #1d4ed8;
+    background-color: #e4ff3b;
+    box-shadow: 3px 3px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.btn-guardar:active {
+    box-shadow: none;
+    transform: none;
 }
 
 .btn-cancelar {
     display: inline-block;
 
-    padding: 11px 22px;
+    padding: 10px 24px;
 
-    background-color: #e2e8f0;
-    color: #334155;
+    background-color: #F3E6D7;
+    color: #2B1D4A;
 
-    border-radius: 8px;
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
 
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
 
-    transition: 0.2s;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
 }
 
 .btn-cancelar:hover {
-    background-color: #cbd5e1;
+    background-color: #e4ff3b;
+    box-shadow: 3px 3px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.btn-cancelar:active {
+    box-shadow: none;
+    transform: none;
 }
 
 /* Celular */
@@ -129,10 +150,10 @@
 
     padding: 11px 13px;
 
-    background-color: #f8fafc;
-    color: #0f172a;
+    background-color: #FBF6EF;
+    color: #2B1D4A;
 
-    border: 1px solid #cbd5e1;
+    border: 1px solid #E3D0B8;
     border-radius: 8px;
 
     font-size: 14px;
@@ -140,6 +161,6 @@
 
 .select-campo:focus {
     outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: #9B7ED6;
+    box-shadow: 0 0 0 3px rgba(155, 126, 214, 0.3);
 }
