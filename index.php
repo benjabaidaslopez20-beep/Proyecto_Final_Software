@@ -178,7 +178,7 @@ $ventas_mes = $fila_ventas_mes["total"];
 
             <li>
 
-                <a href="#">
+                <a href="clientes/index.php">
 
                     👥 Clientes
 
@@ -200,7 +200,7 @@ $ventas_mes = $fila_ventas_mes["total"];
             </li>
 
 
-                    <?php if (es_admin()) { ?>
+            <?php if (es_admin()) { ?>
 
                 <li>
                     <a href="usuarios/index.php">

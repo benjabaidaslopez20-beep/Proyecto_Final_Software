@@ -1,0 +1,263 @@
+/* =====================================================
+   CLIENTES - ESTILOS DE LA PÁGINA
+   Cada sección explica qué cambia cada propiedad.
+   Todas las clases empiezan con "cli-" para no pisar
+   los estilos de las otras páginas.
+===================================================== */
+
+
+/* =====================================================
+   MENSAJES (verde = éxito, rojo = error)
+===================================================== */
+
+.cli-mensaje {
+    padding: 12px 16px;          /* espacio interno: arriba/abajo y costados */
+    border-radius: 8px;          /* redondeo de las esquinas */
+    margin-bottom: 18px;         /* separación con lo que viene debajo */
+    font-size: 14px;             /* tamaño del texto */
+}
+
+.cli-mensaje-ok {
+    background: #e6f6ec;         /* color de fondo */
+    color: #1e7a3c;              /* color del texto */
+    border: 1px solid #b5e2c5;   /* borde */
+}
+
+.cli-mensaje-error {
+    background: #fdecec;
+    color: #b42318;
+    border: 1px solid #f5c2c0;
+}
+
+
+/* =====================================================
+   BARRA SUPERIOR: buscador + botón "Nuevo cliente"
+===================================================== */
+
+.cli-barra {
+    display: flex;               /* pone los elementos en una fila */
+    justify-content: space-between; /* buscador a la izquierda, botón a la derecha */
+    align-items: center;         /* los centra verticalmente */
+    gap: 12px;                   /* espacio entre buscador y botón */
+    flex-wrap: wrap;             /* en pantallas chicas pasan a otra línea */
+    margin-bottom: 10px;
+}
+
+.cli-buscador {
+    display: flex;
+    gap: 8px;                    /* espacio entre input y botones */
+    flex: 1;                     /* ocupa todo el ancho disponible */
+    min-width: 260px;            /* ancho mínimo antes de saltar de línea */
+    max-width: 650px;            /* ancho máximo del buscador */
+}
+
+.cli-buscador input {
+    flex: 1;                     /* el campo se estira */
+    padding: 10px 14px;          /* espacio interno (alto del campo) */
+    border: 1px solid #cfd6dd;   /* color del borde */
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;               /* saca el borde azul del navegador */
+}
+
+.cli-buscador input:focus {
+    border-color: #3b82f6;       /* color del borde cuando hacés click adentro */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); /* brillo alrededor */
+}
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.cli-btn-buscar,
+.cli-btn-nuevo {
+    padding: 10px 18px;
+    border: none;                /* sin borde */
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;            /* grosor de la letra */
+    cursor: pointer;             /* manito al pasar el mouse */
+    color: #ffffff;              /* color del texto */
+}
+
+.cli-btn-buscar {
+    background: #3b82f6;         /* azul */
+}
+
+.cli-btn-buscar:hover {
+    background: #2563eb;         /* azul más oscuro al pasar el mouse */
+}
+
+.cli-btn-nuevo {
+    background: #16a34a;         /* verde */
+}
+
+.cli-btn-nuevo:hover {
+    background: #15803d;
+}
+
+.cli-btn-limpiar {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: #667085;              /* gris */
+    font-size: 14px;
+    text-decoration: none;       /* sin subrayado */
+}
+
+.cli-btn-limpiar:hover {
+    color: #b42318;              /* rojo al pasar el mouse */
+}
+
+.cli-btn-cancelar {
+    padding: 10px 18px;
+    background: #eef1f4;
+    color: #344054;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cli-btn-cancelar:hover {
+    background: #dde2e8;
+}
+
+
+/* =====================================================
+   CONTADOR DE RESULTADOS
+===================================================== */
+
+.cli-contador {
+    margin: 6px 0 14px;
+    color: #667085;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   TABLA
+===================================================== */
+
+.cli-tabla-caja {
+    background: #ffffff;         /* fondo blanco de la tarjeta */
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(16, 24, 40, 0.1); /* sombra suave */
+    overflow-x: auto;            /* scroll horizontal si no entra en pantalla */
+}
+
+.cli-tabla {
+    width: 100%;                 /* ocupa todo el ancho de la tarjeta */
+    border-collapse: collapse;   /* une los bordes de las celdas */
+    font-size: 14px;
+}
+
+.cli-tabla th {
+    text-align: left;            /* alineación del título de cada columna */
+    padding: 14px 16px;
+    background: #f5f7fa;         /* fondo del encabezado */
+    color: #475467;
+    font-size: 12px;
+    text-transform: uppercase;   /* pasa el título a mayúsculas */
+    letter-spacing: 0.4px;       /* separación entre letras */
+    white-space: nowrap;         /* evita que el título se corte en 2 líneas */
+}
+
+.cli-tabla td {
+    padding: 13px 16px;
+    border-top: 1px solid #eaecf0; /* línea separadora entre filas */
+    color: #344054;
+}
+
+.cli-tabla tbody tr:hover {
+    background: #f9fafb;         /* resalta la fila al pasar el mouse */
+}
+
+.cli-nombre {
+    font-weight: 600;            /* nombre en negrita */
+    color: #101828;
+}
+
+.cli-vacio {
+    text-align: center;
+    padding: 30px 16px !important;
+    color: #98a2b3;
+}
+
+
+/* =====================================================
+   VENTANA EMERGENTE (formulario de nuevo cliente)
+===================================================== */
+
+.cli-modal {
+    border: none;
+    border-radius: 14px;
+    padding: 0;
+    width: 560px;                /* ancho de la ventana */
+    max-width: 94vw;             /* en celulares nunca supera el ancho de la pantalla */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.cli-modal::backdrop {
+    background: rgba(16, 24, 40, 0.55); /* fondo oscuro detrás de la ventana */
+}
+
+.cli-modal-form {
+    padding: 24px;               /* espacio interno de la ventana */
+}
+
+.cli-modal-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.cli-modal-titulo h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #101828;
+}
+
+.cli-modal-cerrar {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #98a2b3;
+    cursor: pointer;
+}
+
+.cli-modal-cerrar:hover {
+    color: #101828;
+}
+
+.cli-fila {
+    display: flex;               /* dos campos lado a lado */
+    gap: 14px;
+}
+
+.cli-fila .campo {
+    flex: 1;                     /* cada campo ocupa la mitad */
+}
+
+.cli-modal-botones {
+    display: flex;
+    justify-content: flex-end;   /* botones alineados a la derecha */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+/* =====================================================
+   CELULARES
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .cli-fila {
+        flex-direction: column;  /* los campos pasan uno debajo del otro */
+        gap: 0;
+    }
+}
