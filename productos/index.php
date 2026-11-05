@@ -3,7 +3,6 @@
 require_once "../config/auth.php";
 require_once "../config/conexion.php";
 
-
 // Vista: productos activos o dados de baja
 $ver_bajas = (($_GET["ver"] ?? "") === "bajas");
 

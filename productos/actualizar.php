@@ -176,7 +176,7 @@ try {
     $conexion->rollback();
 
     // Para ver el error real mientras probás, cambiá el texto por: $e->getMessage()
-    die("No se pudo actualizar el producto.");
+    die("No se pudo actualizar el producto. sjahgdgjs");
 }
 
 ?>
