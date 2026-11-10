@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $usuario_id = $_SESSION["usuario_id"] ?? null;
 
             $insertar->bind_param(
-                "isiisssssdddi",
+                "isiiissssddddi",
                 $venta_id, $tipo, $punto_venta, $numero, $cliente_id, $cliente_nombre,
                 $cliente_documento, $cliente_condicion_iva, $cliente_direccion,
                 $venta["subtotal"], $venta["descuento"], $venta["impuestos"], $venta["total"],
