@@ -188,7 +188,7 @@ $bajos = array_filter($productos, function ($p) {
 // Producto preseleccionado (viene de los botones "Actualizar" de la tabla)
 $seleccionado = intval($_GET["id"] ?? 0);
 
-$menu_activo = "actualizar_stock";
+$menu_activo = "productos";
 $prefijo = "../";
 
 ?>

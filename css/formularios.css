@@ -164,3 +164,28 @@
     border-color: #9B7ED6;
     box-shadow: 0 0 0 3px rgba(155, 126, 214, 0.3);
 }
+
+/* Recuadro que muestra el stock actual y cómo va a quedar */
+
+.stock-preview {
+    grid-column: 1 / -1;
+
+    padding: 12px 16px;
+
+    background-color: #F3E6D7;
+    color: #6B5B85;
+
+    border: 2px dashed #E3D0B8;
+    border-radius: 10px;
+
+    font-size: 14px;
+}
+
+.stock-preview strong {
+    color: #2B1D4A;
+}
+
+.stock-preview.alerta {
+    border-color: #dc2626;
+    color: #b91c1c;
+}

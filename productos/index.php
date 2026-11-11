@@ -73,6 +73,32 @@ $resultado = $conexion->query(
 
         <section class="content-box" style="margin-top: 20px;">
 
+            <h3>Actualizar productos</h3>
+
+            <p style="margin-bottom: 18px; color: #6B5B85;">
+                Sumá, quitá o corregí el stock de un producto. Queda registrado en Movimientos.
+            </p>
+
+            <a href="actualizar_stock.php">
+                <button type="button">
+                    🔄 Actualizar productos
+                </button>
+            </a>
+
+            <?php if (!empty($aviso_cant)) { ?>
+
+                <span class="badge badge-bajo" style="margin-left: 12px;">
+                    ⚠ <?php echo $aviso_cant; ?>
+                    <?php echo $aviso_cant === 1 ? "producto con stock bajo" : "productos con stock bajo"; ?>
+                </span>
+
+            <?php } ?>
+
+        </section>
+
+
+        <section class="content-box" style="margin-top: 20px;">
+
             <h3><?php echo $ver_bajas ? "Productos dados de baja" : "Listado de productos"; ?></h3>
 
             <p style="margin-bottom: 18px;">

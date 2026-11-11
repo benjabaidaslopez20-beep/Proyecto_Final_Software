@@ -182,7 +182,7 @@ function formato_numero($tipo, $punto_venta, $numero)
             </a>
 
             <button type="button" class="btn-secundario" onclick="window.print()">
-                🖨️ Imprimir
+                🖨️ Descargar
             </button>
 
         </div>

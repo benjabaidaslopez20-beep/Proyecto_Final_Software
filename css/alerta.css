@@ -1,0 +1,275 @@
+/* ========================================
+   POPUP DE STOCK BAJO
+   Paleta: #F3E6D7 (crema) · #9B7ED6 (violeta) · #e4ff3b (lima)
+   (el texto y los bordes usan #2B1D4A para que se lea bien)
+======================================== */
+
+.popup-stock {
+    width: 460px;
+    max-width: 92vw;
+
+    /* El reinicio "* { margin: 0 }" anula el centrado del dialog: lo restauramos */
+    margin: auto;
+    padding: 0;
+
+    overflow: hidden;
+
+    background-color: #F3E6D7;
+    color: #2B1D4A;
+
+    border: 2px solid #2B1D4A;
+    border-radius: 20px;
+
+    box-shadow: 8px 8px 0 #2B1D4A;
+}
+
+.popup-stock::backdrop {
+    background-color: rgba(43, 29, 74, 0.55);
+    backdrop-filter: blur(2px);
+}
+
+.popup-stock[open] {
+    animation: popup-stock-entra 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes popup-stock-entra {
+
+    from {
+        opacity: 0;
+        transform: translateY(-18px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* ---------- Cabecera violeta ---------- */
+
+.popup-stock-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 20px 24px;
+
+    background-color: #9B7ED6;
+
+    border-bottom: 2px solid #2B1D4A;
+}
+
+.popup-stock-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+
+    background-color: #e4ff3b;
+    color: #2B1D4A;
+
+    border: 2px solid #2B1D4A;
+    border-radius: 50%;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    animation: popup-stock-latido 1.8s ease-in-out infinite;
+}
+
+@keyframes popup-stock-latido {
+
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(228, 255, 59, 0.9);
+    }
+
+    50% {
+        box-shadow: 0 0 0 9px rgba(228, 255, 59, 0);
+    }
+}
+
+.popup-stock-cabecera h3 {
+    margin: 0;
+
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+.popup-stock-cabecera p {
+    margin: 2px 0 0;
+
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+
+/* ---------- Cuerpo crema ---------- */
+
+.popup-stock-cuerpo {
+    padding: 22px 24px 24px;
+}
+
+.popup-stock-texto {
+    margin-bottom: 14px;
+
+    font-size: 14px;
+}
+
+.popup-stock-lista {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    max-height: 240px;
+    overflow-y: auto;
+
+    margin-bottom: 22px;
+    padding: 2px 4px 4px 2px;
+}
+
+.popup-stock-lista li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 10px 14px;
+
+    background-color: rgba(255, 255, 255, 0.55);
+
+    border: 2px solid #2B1D4A;
+    border-radius: 12px;
+
+    font-size: 14px;
+}
+
+.popup-stock-nombre {
+    font-weight: 600;
+}
+
+/* Etiqueta con el stock actual: lima si queda poco, violeta si no queda nada */
+
+.popup-stock-pill {
+    flex-shrink: 0;
+
+    padding: 4px 12px;
+
+    background-color: #e4ff3b;
+    color: #2B1D4A;
+
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.popup-stock-pill small {
+    font-size: 11px;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+.popup-stock-pill.agotado {
+    background-color: #9B7ED6;
+}
+
+.popup-stock-lista li.popup-stock-mas {
+    justify-content: center;
+
+    background-color: transparent;
+
+    border-style: dashed;
+
+    font-size: 13px;
+}
+
+
+/* ---------- Botones ---------- */
+
+.popup-stock-botones {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.popup-stock-btn {
+    display: inline-block;
+
+    padding: 11px 24px;
+
+    background-color: #e4ff3b;
+    color: #2B1D4A;
+
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: background-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+.popup-stock-btn.secundario {
+    background-color: #F3E6D7;
+}
+
+.popup-stock-btn:hover {
+    background-color: #9B7ED6;
+    box-shadow: 3px 3px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.popup-stock-btn:active {
+    box-shadow: none;
+    transform: none;
+}
+
+.popup-stock-btn:focus-visible {
+    outline: 3px solid #9B7ED6;
+    outline-offset: 2px;
+}
+
+
+/* ---------- Celular ---------- */
+
+@media (max-width: 480px) {
+
+    .popup-stock-cabecera,
+    .popup-stock-cuerpo {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .popup-stock-botones {
+        flex-direction: column-reverse;
+    }
+
+    .popup-stock-btn {
+        text-align: center;
+    }
+}
+
+
+/* ---------- Respetar "reducir movimiento" ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .popup-stock[open],
+    .popup-stock-icono {
+        animation: none !important;
+    }
+}

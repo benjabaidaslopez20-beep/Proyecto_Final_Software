@@ -410,6 +410,263 @@ button:focus-visible {
 
 
 /* ========================================
+   AVISO DE STOCK BAJO
+======================================== */
+
+/* Signo de exclamación rojo en la barra superior */
+
+.topbar-alerta {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    margin-left: auto;
+
+    background-color: #dc2626;
+    color: white;
+
+    border: 2px solid #2B1D4A;
+    border-radius: 50%;
+
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+
+    animation: latido-alerta 1.8s ease-in-out infinite;
+}
+
+/* Si hay etiqueta de sección, ella empuja a la derecha */
+
+.topbar-seccion + .topbar-alerta {
+    margin-left: 0;
+}
+
+.topbar-alerta:hover {
+    background-color: #b91c1c;
+}
+
+/* Cantidad de productos en el límite */
+
+.topbar-alerta-num {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 5px;
+
+    background-color: #e4ff3b;
+    color: #2B1D4A;
+
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+@keyframes latido-alerta {
+
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.6);
+    }
+
+    50% {
+        box-shadow: 0 0 0 9px rgba(220, 38, 38, 0);
+    }
+}
+
+/* Puntito rojo dentro del ítem "Actualizar productos" del menú */
+
+.menu-aviso {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    margin-left: 8px;
+
+    background-color: #dc2626;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Popup */
+
+.alerta-stock {
+    width: 460px;
+    max-width: 94vw;
+
+    padding: 0;
+
+    background-color: #FBF6EF;
+    color: #2B1D4A;
+
+    border: 2px solid #2B1D4A;
+    border-radius: 18px;
+
+    box-shadow: 6px 6px 0 #2B1D4A;
+}
+
+.alerta-stock::backdrop {
+    background-color: rgba(43, 29, 74, 0.55);
+}
+
+.alerta-stock[open] {
+    animation: alerta-entra 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes alerta-entra {
+
+    from {
+        opacity: 0;
+        transform: translateY(-14px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.alerta-stock-cuerpo {
+    padding: 24px;
+}
+
+.alerta-stock-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+.alerta-stock-titulo h3 {
+    font-size: 22px;
+}
+
+.alerta-stock-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    background-color: #dc2626;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.alerta-stock-texto {
+    margin-bottom: 14px;
+
+    font-size: 14px;
+    color: #6B5B85;
+}
+
+.alerta-stock-lista {
+    list-style: none;
+
+    max-height: 240px;
+    overflow-y: auto;
+
+    margin-bottom: 22px;
+
+    border-top: 1px solid #E3D0B8;
+}
+
+.alerta-stock-lista li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #E3D0B8;
+
+    font-size: 14px;
+}
+
+.alerta-stock-lista strong {
+    color: #b91c1c;
+    white-space: nowrap;
+}
+
+.alerta-stock-mas {
+    color: #6B5B85;
+}
+
+.alerta-stock-botones {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.alerta-stock-btn {
+    display: inline-block;
+
+    padding: 10px 22px;
+
+    background-color: #9B7ED6;
+    color: #2B1D4A;
+
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: background-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+.alerta-stock-btn.secundario {
+    background-color: #F3E6D7;
+}
+
+.alerta-stock-btn:hover {
+    background-color: #e4ff3b;
+    box-shadow: 3px 3px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.alerta-stock-btn:active {
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* ========================================
    RESPETAR "REDUCIR MOVIMIENTO" DEL SISTEMA
 ======================================== */
 
@@ -422,6 +679,15 @@ button:focus-visible {
     .menu-toggle span {
         transition-duration: 0.01s !important;
         transition-delay: 0s !important;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .topbar-alerta,
+    .alerta-stock[open] {
+        animation: none !important;
     }
 
 }

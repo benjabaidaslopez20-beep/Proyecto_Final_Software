@@ -772,7 +772,7 @@ $prefijo = "../";
         <!-- IMPRIMIR -->
 
         <p class="no-imprimir" style="margin-top: 20px;">
-            <button type="button" onclick="window.print();">🖨️ Imprimir reporte</button>
+            <button type="button" onclick="window.print();">🖨️ descargar reporte</button>
         </p>
 
     </main>

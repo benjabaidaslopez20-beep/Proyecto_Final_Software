@@ -1,5 +1,8 @@
 /* ========================================
    REPORTES - Sistema de gestión
+   Mismo estilo que el resto de la aplicación:
+   píldoras con borde oscuro, hover lima con
+   sombra sólida.
 ======================================== */
 
 /* Pestañas */
@@ -7,35 +10,47 @@
 .tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-
+    gap: 10px;
     margin-bottom: 20px;
 }
 
 .tabs a {
-    padding: 10px 18px;
-
-    background-color: white;
-    color: #475569;
-
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-
+    display: inline-block;
+    padding: 10px 22px;
+    background-color: #F3E6D7;
+    color: #2B1D4A;
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
-
-    transition: 0.2s;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
 }
 
 .tabs a:hover {
-    background-color: #f1f5f9;
+    background-color: #e4ff3b;
+    box-shadow: 3px 3px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
 }
 
+.tabs a:active {
+    box-shadow: none;
+    transform: none;
+}
+
+/* Pestaña activa: oscura con letras lima, igual que el menú */
+
 .tabs a.activa {
-    background-color: #2563eb;
-    border-color: #2563eb;
-    color: white;
+    background-color: #2B1D4A;
+    color: #e4ff3b;
+}
+
+.tabs a.activa:hover {
+    background-color: #2B1D4A;
+    box-shadow: 3px 3px 0 #9B7ED6;
 }
 
 /* Filtros de fecha */
@@ -45,64 +60,90 @@
     flex-wrap: wrap;
     align-items: flex-end;
     gap: 14px;
-
     margin-bottom: 20px;
-    padding: 18px 20px;
-
-    background-color: white;
-
+    padding: 20px;
+    background-color: #FBF6EF;
     border-radius: 12px;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(43, 29, 74, 0.15);
 }
 
 .filtros .campo {
+    display: flex;
+    flex-direction: column;
     min-width: 150px;
 }
 
-.filtros .campo input {
-    padding: 9px 12px;
+.filtros .campo label {
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6B5B85;
 }
+
+.filtros .campo input {
+    padding: 11px 13px;
+    background-color: #FBF6EF;
+    color: #2B1D4A;
+    border: 1px solid #E3D0B8;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filtros .campo input:focus {
+    border-color: #9B7ED6;
+    box-shadow: 0 0 0 3px rgba(155, 126, 214, 0.3);
+}
+
+/* Atajos de fecha (Hoy, Este mes, etc.): versión chica del botón */
 
 .filtros-rapidos {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-
     margin-left: auto;
 }
 
 .filtros-rapidos a {
-    padding: 8px 14px;
-
-    background-color: #f1f5f9;
-    color: #334155;
-
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-
+    display: inline-block;
+    padding: 7px 16px;
+    background-color: #E9E0F7;
+    color: #2B1D4A;
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
 }
 
 .filtros-rapidos a:hover {
-    background-color: #1e293b;
-    border-color: #1e293b;
-    color: white;
+    background-color: #e4ff3b;
+    box-shadow: 2px 2px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.filtros-rapidos a:active {
+    box-shadow: none;
+    transform: none;
 }
 
 /* Subtítulos */
 
 .reporte-periodo {
     margin-bottom: 20px;
-
-    color: #64748b;
+    color: #6B5B85;
     font-size: 14px;
 }
 
 .reporte-titulo {
     margin: 30px 0 15px;
+    color: #2B1D4A;
 }
 
 /* Barras de proporción */
@@ -111,55 +152,143 @@
     width: 100%;
     min-width: 120px;
     height: 10px;
-
-    background-color: #e2e8f0;
-
+    background-color: #E3D0B8;
     border-radius: 999px;
-
     overflow: hidden;
 }
 
 .barra span {
     display: block;
     height: 100%;
-
-    background-color: #2563eb;
-
+    background-color: #9B7ED6;
     border-radius: 999px;
 }
 
 .sin-datos {
     padding: 20px 0;
-    color: #64748b;
+    color: #6B5B85;
 }
 
 .fila-total td {
-    background-color: #f1f5f9 !important;
+    background-color: #E9E0F7 !important;
+    color: #2B1D4A;
     font-weight: bold;
+}
+
+/* Botones del contenido (Filtrar, Imprimir, etc.)
+   Solo los que no tienen una clase propia, y solo dentro de la
+   página: así no se toca el botón del menú ni el popup. */
+
+.main button:not([class]),
+.main input[type="button"]:not([class]),
+.main input[type="submit"]:not([class]) {
+    padding: 10px 22px;
+    background-color: #9B7ED6;
+    color: #2B1D4A;
+    border: 2px solid #2B1D4A;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+.main button:not([class]):hover,
+.main input[type="button"]:not([class]):hover,
+.main input[type="submit"]:not([class]):hover {
+    background-color: #e4ff3b;
+    box-shadow: 3px 3px 0 #2B1D4A;
+    transform: translate(-1px, -1px);
+}
+
+.main button:not([class]):active,
+.main input[type="button"]:not([class]):active,
+.main input[type="submit"]:not([class]):active {
+    box-shadow: none;
+    transform: none;
+}
+
+.main button:focus-visible,
+.main input[type="button"]:focus-visible,
+.main input[type="submit"]:focus-visible,
+.tabs a:focus-visible,
+.filtros-rapidos a:focus-visible {
+    outline: 3px solid #9B7ED6;
+    outline-offset: 3px;
 }
 
 /* Impresión */
 
 @media print {
-
-    .sidebar,
+    .topbar,
+    .menu-panel,
+    .menu-fondo,
+    .alerta-stock,
     .no-imprimir {
         display: none !important;
     }
 
     .main {
-        margin-left: 0;
         padding: 0;
     }
 
     body {
         background-color: white;
+        color: #2B1D4A;
     }
 
     .card,
-    .content-box {
+    .content-box,
+    .filtros {
+        background-color: white;
         box-shadow: none;
-        border: 1px solid #e2e8f0;
+        border: 1px solid #E3D0B8;
     }
 
+    /* El encabezado oscuro de las tablas no siempre se imprime: se pasa a línea */
+    .tabla thead th {
+        background-color: transparent;
+        color: #2B1D4A;
+        border-bottom: 2px solid #2B1D4A;
+    }
+
+    .tabs a,
+    .filtros-rapidos a {
+        box-shadow: none;
+    }
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+    .filtros {
+        align-items: stretch;
+    }
+
+    .filtros .campo {
+        width: 100%;
+    }
+
+    .filtros .campo input {
+        width: 100%;
+    }
+
+    .filtros-rapidos {
+        margin-left: 0;
+    }
+}
+
+/* Respetar "reducir movimiento" del sistema */
+
+@media (prefers-reduced-motion: reduce) {
+    .tabs a,
+    .filtros-rapidos a,
+    .main button,
+    .main input[type="button"],
+    .main input[type="submit"] {
+        transition-duration: 0.01s !important;
+    }
 }
